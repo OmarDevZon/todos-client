@@ -92,10 +92,13 @@ node >> don't forget restart your application
 ---
 
 ### how can add shadcn css with postcss (vite)
+
 1. install shadcn css with tailwind css
-```bash 
+
+```bash
 npx shadcn-ui@latest init
 ```
+
 2. tsconfig.json file changes
 
 "compilerOptions": {
@@ -111,15 +114,18 @@ npx shadcn-ui@latest init
 "./src/_"
 ]
 },
-``` 
+
+````
 3. Add the following code to the vite.config.ts so your app can resolve paths without error
 
 ```bash
 
 npm i -D @types/node
 
-```
+````
+
 4. vite.config.ts file changes(remove all code)
+
 ```bash
 import path from "path"
 import react from "@vitejs/plugin-react"
@@ -140,6 +146,7 @@ export default defineConfig({
 
 ### My file structure
 
+```bash
 ----src
 ----|----component
 ----|----|----layouts
@@ -153,8 +160,9 @@ export default defineConfig({
 ----|----utils
 ----|----context
 ----|----hooks
+```
 
----------------------------------------------------------------------------------
+---
 
 ### Store
 
@@ -172,7 +180,6 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 ```
-
 
 note >> don't forget connect store
 
@@ -194,8 +201,10 @@ import { store } from "./redux/store.tsx";
     <App />
   </Provider>
 ```
-src/redux/hooks.ts 
-```bash 
+
+src/redux/hooks.ts
+
+```bash
 import { useDispatch, useSelector } from 'react-redux'
 import type { TypedUseSelectorHook } from 'react-redux'
 import type { RootState, AppDispatch } from './store'
@@ -205,4 +214,5 @@ export const useAppDispatch: () => AppDispatch = useDispatch
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 ```
+
 ---
